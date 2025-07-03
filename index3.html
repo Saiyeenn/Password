@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login UI with Show/Hide Password</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #e9efff, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-box {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+    .login-box h2 {
+      margin-bottom: 25px;
+      color: #333;
+    }
+    .input-box {
+      position: relative;
+      margin-bottom: 25px;
+    }
+    .input-box input {
+      width: 80%;
+      padding: 12px 45px 12px 15px;
+      font-size: 16px;
+    }
+    .input-box input:focus {
+      border-color: #007bff;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      cursor: pointer;
+      color: #888;
+    }
+    .login-box button {
+      padding: 10px 20px;
+      width: 100%;
+      border: none;
+      background: #007bff;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .login-box button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-box">
+  <h2 style="color: #007bff;">Login To Your Account</h2>
+  <div class="input-box">
+    <input type="text" placeholder="Username" required>
+  </div>
+  <div class="input-box">
+    <input type="password" id="password" placeholder="Password" required>
+    <span class="toggle-password" onclick="togglePassword()">
+      <i class="bi bi-eye-slash-fill" id="eyeIcon"></i>
+    </span>
+  </div>
+  <button type="submit">Login</button>
+</div>
+<script>
+  function togglePassword() {
+    const passwordInput = document.getElementById("password");
+    const eyeIcon = document.getElementById("eyeIcon");
+
+    if (passwordInput.type == "password") {
+      passwordInput.type = "text";
+      eyeIcon.classList.remove("bi-eye-slash-fill");
+      eyeIcon.classList.add("bi-eye-fill");
+    } else {
+      passwordInput.type = "password";
+      eyeIcon.classList.remove("bi-eye-fill");
+      eyeIcon.classList.add("bi-eye-slash-fill");
+    }
+  }
+</script>
+</body>
+</html>
